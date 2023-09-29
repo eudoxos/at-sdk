@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cx3d MajorVersion="1" MinorVersion="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cx3d.xsd">
+	<CalibCase3d id="factory">
+		<name>C6-2040MCS15-1480-1460-660</name>
+		<sensorSN>21910520</sensorSN>
+		<dateTime>24-Aug-2023</dateTime>
+		<creator>cx_3d</creator>
+		<description>Factory Calibration</description>
+		<target>0</target>
+		<sensorSize>2048 1088</sensorSize>
+		<fov>1060 1101 1460 1482 1859 1769</fov>
+		<roc>0 0 0 0</roc>
+		<intrinsic>
+			<model>1114625</model>
+			<rangeOffset>0</rangeOffset>
+			<rangeScale>0.03125</rangeScale>
+			<rrH>1</rrH>
+			<rrV>1</rrV>
+			<sensorRoi>0 0 0 0</sensorRoi>
+			<sensorR>0 0 0</sensorR>
+			<pixelSize>0 0</pixelSize>
+			<f>0</f>
+			<cp>1019.32 546.568</cp>
+			<L>
+				<rows>1</rows>
+				<cols>2</cols>
+				<dt>d</dt>
+				<data>9.304746719868832e-08 -1.757679293216011e-14</data>
+			</L>
+			<P>
+				<rows>3</rows>
+				<cols>3</cols>
+				<dt>d</dt>
+				<data>0.3493476014197476 0.0005807407229751687 -3.47491480667324 -0.0002485590494143174 -1.347137519300031 -3.345736676872156 1.22383249075569e-06 -0.0008690930052704803 1</data>
+			</P>
+			<C>
+				<rows>15</rows>
+				<cols>2</cols>
+				<dt>d</dt>
+				<data>-0.04716897204015309 0.48684312762078 1.000226670377871 2.95545897056102e-05 -3.014615313576027e-05 1.000456348046002 -8.947471315350722e-07 7.253796362793505e-07 6.913619122180116e-07 -1.945073504912536e-06 -2.835558260694357e-07 -1.272407355196938e-06 -1.276000614882552e-10 -6.327915375909739e-09 6.522677301989225e-10 -2.14537423654776e-09 -6.571925316243806e-10 5.689484782708773e-11 4.128006819158806e-10 -4.885108452104576e-10 1.910626527547775e-12 -1.448905479689737e-12 1.441468039080987e-12 -1.752740021444252e-12 5.31129681269748e-13 -5.455837689155515e-12 -1.338444793932289e-12 -2.073264222463467e-12 1.062265222655218e-12 2.241233824898891e-12</data>
+			</C>
+			<N>
+				<rows>1</rows>
+				<cols>10</cols>
+				<dt>d</dt>
+				<data>0.2452980875968933 0.0005538581754080951 6.332093107630499e-07 -5.578433270869709e-09 -5.511206942199198e-12 2.012773052341345e-14 1.314281301814272e-17 -2.896782627751582e-20 -9.051474434622748e-24 1.520950788285332e-26</data>
+			</N>
+		</intrinsic>
+		<extrinsic>
+			<Sy>1</Sy>
+			<Sxy>0</Sxy>
+			<Szy>0</Szy>
+			<T>0 0 0</T>
+			<R>0 0 0</R>
+		</extrinsic>
+		<metric>
+			<offset>0 0 0</offset>
+			<scale>1 1 1</scale>
+			<invalidDataValue>-nan(ind)</invalidDataValue>
+		</metric>
+		<accuracyStat>
+			<rows>4</rows>
+			<cols>3</cols>
+			<dt>d</dt>
+			<data>-2.239840711658064e-13 0.1860638070535913 0.6157880498858503 0 0 0 -8.306709422077657e-14 0.1464051329186894 0.4699837719800257 0.2053280126304745 0.1178754023086871 0.6828165274464016</data>
+		</accuracyStat>
+		<lensCorrStat>
+			<rows>1</rows>
+			<cols>3</cols>
+			<dt>d</dt>
+			<data>0 0 0</data>
+		</lensCorrStat>
+	</CalibCase3d>
+</cx3d>
