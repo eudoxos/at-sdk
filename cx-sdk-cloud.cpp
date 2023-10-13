@@ -27,8 +27,21 @@ int main(void){
 	AT::cx::c3d::PointCloud pc(rangeImg.height(),rangeImg.width());
 	AT::cx::c3d::calculatePointCloud(calib_AT,rangeImg,pc);
 	assert(pc.points.pixelFormat()==cx_pixel_format::CX_PF_COORD3D_ABC32f);
-	/* save the point cloud to files for inspection */
-	pc.save("cloud.xyz");
-	pc.save("cloud.ply");
+	/* traverse the cloud, counting non-0,0,0 points */
+	int nonzero=0;
+	for(size_t y=0; y<pc.points.height(); y++){
+		for(size_t x=0; x<pc.points.width(); x++){
+			auto p=pc.points.at<AT::cx::Point3f>(y,x);
+			if(p.x!=0 || p.y!=0 || p.z!=0) nonzero++;
+		}
+	}
+	if(nonzero==0){
+		std::cerr<<"Error: no valid (non-zero) points in the cloud."<<std::endl;
+		exit(1);
+	} else {
+		/* save the point cloud to files for inspection */
+		pc.save("cloud.xyz");
+		pc.save("cloud.ply");
+	}
 }
 
