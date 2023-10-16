@@ -28,20 +28,32 @@ int main(void){
 	AT::cx::c3d::calculatePointCloud(calib_AT,rangeImg,pc);
 	assert(pc.points.pixelFormat()==cx_pixel_format::CX_PF_COORD3D_ABC32f);
 	/* traverse the cloud, counting non-0,0,0 points */
-	int nonzero=0;
+	int nonzeroOpenCV=0;
+	int nonzeroDirect=0;
 	for(size_t y=0; y<pc.points.height(); y++){
 		for(size_t x=0; x<pc.points.width(); x++){
 			auto p=pc.points.at<AT::cx::Point3f>(y,x);
-			if(p.x!=0 || p.y!=0 || p.z!=0) nonzero++;
+			if(p.x!=0 || p.y!=0 || p.z!=0) nonzeroOpenCV++;
+			/* direct access to float array; row-major, 3 floats per point */
+			float *xyz=&(((float*)pc.points.data())[3*(y*pc.points.width()+x)]);
+			if(xyz[0]!=0 || xyz[1]!=0 || xyz[1]!=0) nonzeroDirect++;
 		}
 	}
-	if(nonzero==0){
-		std::cerr<<"Error: no valid (non-zero) points in the cloud."<<std::endl;
-		exit(1);
-	} else {
+	std::cerr<<"Nonzero: OpenCV "<<nonzeroOpenCV<<", direct-access "<<nonzeroDirect<<"."<<std::endl;
+	#if 1
+		/* data access as suggested by AT support — only zeros */
+		std::ofstream pc_file;
+		pc_file.open("cloud.txt");
+		float* datapoint = (float*) pc.points.data();
+		for (int i = 0; i < pc.points.width() * pc.points.height(); i++) {
+			pc_file << *(datapoint++) << " " << *(datapoint++) << " " << *(datapoint++) << "\n";
+		}
+		pc_file.close();
+	#endif
+	#if 0
 		/* save the point cloud to files for inspection */
 		pc.save("cloud.xyz");
 		pc.save("cloud.ply");
-	}
+	#endif
 }
 
